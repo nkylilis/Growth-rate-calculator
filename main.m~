@@ -44,4 +44,3 @@ for i = 1:8
 end
 xlswrite('max_growth_rate_analysis', matrixGR);
 xlswrite('GFP_per_cell_@maxGR', matrixGFP);
-xlswrite('RFP_per_cell_@maxGR', matrixRFP);
