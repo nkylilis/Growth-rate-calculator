@@ -1,4 +1,4 @@
-function [GFP_per_cell_max_gr, GFP_per_cell_values] =GFP_per_cell(GFP_data,x1, x2, index, OD700_data_row, time)
+function [GFP_per_cell_max_gr, GFP_per_cell_values] =GFP_per_cell(GFP_data,x1, x2, index, OD700_data_row, time, timestep_min)
 
 FI = GFP_data(:,x1:x2);
 FI_media_cor = FI - FI(1,1);                % corrects for blank fluorescence
@@ -13,11 +13,12 @@ for i = 1:12
     plot(time, GFP_per_cell_values(:,i),'.')
     xlabel('time (minutes)')
     ylabel('GFP_per cell')
-    %ylim([0 0.5]);
+    ylim([0 2.5e4]);
     xlim([0 1500]);
     title('Sample: '  + string(x1+i) )
+    vline(index(i)*timestep_min-timestep_min);
 end
-saveas(fig, 'GFP_per cell'  + string(x1) + '-' + string(x2))
+print('GFP_per cell'  + string(x1) + '-' + string(x2),'-dpng')
 close(fig);
 
 

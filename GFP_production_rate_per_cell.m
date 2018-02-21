@@ -1,4 +1,4 @@
-function rate_matrix = GFP_production_rate_per_cell(time, GFP_per_cell_values, timestep, x1, x2)
+function rate_matrix = GFP_production_rate_per_cell(time, GFP_per_cell_values, timestep, x1, x2, index, timestep_min)
     
     rate_matrix = zeros(length(time), 12);
     
@@ -31,8 +31,9 @@ function rate_matrix = GFP_production_rate_per_cell(time, GFP_per_cell_values, t
         %ylim([0 0.5]);
         xlim([0 1500]);
         title('Sample: '  + string(x1+i) )
+        vline(index(i)*timestep_min-timestep_min);
     end
-    saveas(fig, 'GFP_production_rate_per_cell - Samples: '  + string(x1) + '-' + string(x2))
+    print('GFP_production_rate_per_cell - Samples: '  + string(x1) + '-' + string(x2),'-dpng')
     close(fig);
 
 end

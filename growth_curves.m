@@ -34,7 +34,7 @@ for i = 1:12
     xlim([0 1500]);
     title('Sample: '  + string(x1+i) )
 end
-saveas(fig, 'Growth curves- Samples: '  + string(x1) + '-' + string(x2))
+print('Growth curves- Samples: '  + string(x1) + '-' + string(x2),'-dpng')
 close(fig);
 
 xlswrite('growth_curves - Samples: ' + string(x1) + '-' + string(x2), a);
