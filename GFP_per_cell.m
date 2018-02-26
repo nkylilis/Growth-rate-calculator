@@ -5,7 +5,7 @@ FI_media_cor = FI - FI(1,1);                % corrects for blank fluorescence
 FI_media_cor(FI_media_cor<0.011) = 0.01;    % corrects for negative values
 
 GFP_per_cell_values = FI_media_cor./OD700_data_row;
-xlswrite('GFP_per cell - Samples_'+ string(x1) + '_' + string(x2), GFP_per_cell_values);
+xlswrite(char('GFP_per cell - Samples_'+ string(x1) + '_' + string(x2)), GFP_per_cell_values);
 
 fig = figure;
 for i = 1:12

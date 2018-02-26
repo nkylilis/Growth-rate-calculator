@@ -20,8 +20,7 @@ function rate_matrix = GFP_production_rate_per_cell(time, GFP_per_cell_values, t
         
     end
     a = [time rate_matrix];
-    xlswrite('GFP_production_rate_per_cell - Samples'+ string(x1) + '-' + string(x2), a);
-    
+    xlswrite(char('GFP_production_rate_per_cell - Samples'+ string(x1) + '-' + string(x2)), a);    
     fig = figure;
     for i = 1:12
         subplot(3,4,i)
@@ -33,7 +32,7 @@ function rate_matrix = GFP_production_rate_per_cell(time, GFP_per_cell_values, t
         title('Sample: '  + string(x1+i) )
         vline(index(i)*timestep_min-timestep_min);
     end
-    print('GFP_production_rate_per_cell - Samples: '  + string(x1) + '-' + string(x2),'-dpng')
+    saveas(gcf,char('GFP_production_rate_per_cell - Samples '  + string(x1) + '-' + string(x2)+'.png'))
     close(fig);
 
 end

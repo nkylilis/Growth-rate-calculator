@@ -34,9 +34,9 @@ for i = 1:12
     xlim([0 1500]);
     title('Sample: '  + string(x1+i) )
 end
-print('Growth curves- Samples: '  + string(x1) + '-' + string(x2),'-dpng')
+saveas(gcf,char('Growth curves- Samples '  + string(x1) + '-' + string(x2)+'.png'))
 close(fig);
 
-xlswrite('growth_curves - Samples: ' + string(x1) + '-' + string(x2), a);
+xlswrite(char('growth_curves - Samples ' + string(x1) + '-' + string(x2)), a);
 
 end
