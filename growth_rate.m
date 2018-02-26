@@ -31,10 +31,10 @@ for i = 1:12
     xlim([0 1500]);
     title('Sample: '  + string(x1+i) )
 end
-print('Growth rate- Samples: '  + string(x1) + '-' + string(x2),'-dpng')
+saveas(gcf,char('Growth rate- Samples '  + string(x1) + '-' + string(x2)+'.png'))
 close(fig);
 
-xlswrite('growth_rate_analysis - Samples: ' + string(x1) + '-' + string(x2), k);
+xlswrite(char('growth_rate_analysis - Samples ' + string(x1) + '-' + string(x2)), k);
 
 [max_growth_rates, index] = max(k,[],1);
 
