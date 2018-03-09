@@ -25,6 +25,6 @@ saveas(gcf,char('GFP_per cell'  + string(x1) + '-' + string(x2)+'.png'));
 
 for i =1:12
    
-    GFP_per_cell_max_gr(1,i) = OD700_data_row(index(i),i);
+    GFP_per_cell_max_gr(1,i) = GFP_per_cell_values(index(i),i);
 end 
 end
