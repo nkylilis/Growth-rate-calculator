@@ -24,7 +24,7 @@ OD700_data_row(OD700_data_row<0.01) = 0.01;
 
 a = [time OD700_data_row];
 
-fig = figure;
+fig = figure;set(fig, 'Visible', 'off');
 for i = 1:12
     subplot(3,4,i)
     plot(time, OD700_data_row(:,i),'.')
@@ -34,8 +34,8 @@ for i = 1:12
     xlim([0 1500]);
     title('Sample: '  + string(x1+i) )
 end
-saveas(gcf,char('Growth curves- Samples '  + string(x1) + '-' + string(x2)+'.png'))
-close(fig);
+saveas(gcf,char('Growth curves- Samples '  + string(x1) + '-' + string(x2)+'.png'));
+
 
 xlswrite(char('growth_curves - Samples ' + string(x1) + '-' + string(x2)), a);
 
