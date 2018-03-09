@@ -1,4 +1,4 @@
-function [max_growth_rates, index] = growth_rate(time, OD700_data_row, x1, x2, timestep)
+function [OD_at_maxGR, max_growth_rates, index] = growth_rate(time, OD700_data_row, x1, x2, timestep)
 
 ln_OD700_row = log(OD700_data_row);
 
@@ -21,7 +21,7 @@ for g = 1:12
 end
 c=zeros(1,12);
 k = [c; c; k; c];
-fig = figure;
+fig = figure;set(fig, 'Visible', 'off');
 for i = 1:12
     subplot(3,4,i)
     plot(time, k(:,i),'.')
@@ -31,11 +31,17 @@ for i = 1:12
     xlim([0 1500]);
     title('Sample: '  + string(x1+i) )
 end
-saveas(gcf,char('Growth rate- Samples '  + string(x1) + '-' + string(x2)+'.png'))
-close(fig);
+saveas(gcf,char('Growth rate- Samples '  + string(x1) + '-' + string(x2)+'.png'));
+
 
 xlswrite(char('growth_rate_analysis - Samples ' + string(x1) + '-' + string(x2)), k);
 
 [max_growth_rates, index] = max(k,[],1);
+
+%finding OD at max GR for yield
+for i =1:12
+       OD_at_maxGR(1,i) = OD700_data_row(index(i),i);
+end 
+
 
 end
