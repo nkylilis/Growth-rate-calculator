@@ -50,7 +50,7 @@ capacity_red = zeros(8,12);
 %reduction in cellular capacity as a % and yield
 for i = 1:12
     for j = 1:8
-    capacity_red(j,i) = GR_GFP_product_rate(j,2)./GR_GFP_product_rate(j,i); %all constructs divided by control with no plasmid
+    capacity_red(j,i) = GR_GFP_product_rate(j,i)./GR_GFP_product_rate(j,2); %all constructs divided by control with no plasmid
     end
 end
 %theoretical yield of RFP*number of cells
