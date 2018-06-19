@@ -19,16 +19,4 @@ warning('off','all');
 %   time(in minutes) in column A; iii) Add OD readings from column B onwards
 growth_rate_module;
 
-% - fluorescence_module(FP) dependencies: growth_rate_module
-% - for this module: i) rename an xlxs sheet as "GFP" (RFP, YFP or CFP) ; ii)Add 
-%   time(in minutes) in column A; iii) Add fluorescence readings from column B onwards
-FP = 'YFP';
-fluorescence_module(FP);
-
-% add here more fluorescence modules for other fluorescent reportes
-% Example:
-% FP = 'RFP'
-% fluorescence_module(FP);
-
-
 disp('Program finished')
