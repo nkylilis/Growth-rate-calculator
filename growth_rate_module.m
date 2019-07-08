@@ -87,10 +87,10 @@ for g = 1:12
     v = zeros(1,length(time_gr));
     
     for i = 3:(length(time)-3)
-        A = [ln_OD700_row(i,g)  ln_OD700_row(i-1,g) ln_OD700_row(i+1,g)];
-        B = [ln_OD700_row(i-1,g) ln_OD700_row(i-2,g) ln_OD700_row(i,g)];
+        A = [ln_OD700_row(i-1,g)  ln_OD700_row(i,g) ln_OD700_row(i+1,g)];
+        B = [ln_OD700_row(i-2,g) ln_OD700_row(i-1,g) ln_OD700_row(i,g)];
         y = mean(A) - mean(B);
-        growth_r = y/(2*timestep);
+        growth_r = y/(timestep);
         v(1,i)=growth_r;
     end
     k(:,g) = v;
